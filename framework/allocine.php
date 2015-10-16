@@ -255,11 +255,18 @@ class Allocine
 				$block[$data['section_id']] = str_get_html(substr($this->page_casting, $start, ($end-$start)));
 				$block[$data['section_id']] = str_get_html(substr($block[$data['section_id']], 0, strpos($block[$data['section_id']], '<!-- sep -->')));
 
+				// print $block[$data['section_id']];
+
 				// Partie avec les portraits
 				$nodes = $block[$data['section_id']]->find('.media_list_02 li');
 
 				$i = 0;
 				foreach ($nodes as $actor):
+
+					$actor_id = null;
+					preg_match('/cpersonne=([0-9]*+).html/', $actor->find('a', 0)->href, $actor_id);
+
+					$this->actors[$data['section_id']][$i]['id']   = $actor_id[1];
 					$this->actors[$data['section_id']][$i]['name'] = trim($actor->find('img', 0)->alt);
 					$this->actors[$data['section_id']][$i]['role'] = @trim(str_replace("Rôle : ", "", $actor->find('p', 1)->plaintext));
 
@@ -277,6 +284,11 @@ class Allocine
 				 
 				$i = count($this->actors[$data['section_id']]);
 				foreach ($nodes as $actor):
+
+					$actor_id = null;
+					$returnValue = preg_match('/cpersonne=([0-9]*+).html/', @$actor->find('a', 0)->href, $actor_id);
+
+					$this->actors[$data['section_id']][$i]['id']   = @$actor_id[1];
 					$this->actors[$data['section_id']][$i]['name'] = trim($actor->find('.tab_tooltip span', 0)->plaintext);
 
 					if(!in_array(strtolower(@$actor->find('td', 0)->plaintext), $exclude_roles)):
