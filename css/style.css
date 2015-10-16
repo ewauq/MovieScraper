@@ -1,0 +1,78 @@
+body {
+	font-family: "Roboto", Arial, Helvetica;
+	color: #444;
+}
+
+.content {
+	margin: 10px auto;
+}
+
+h1 {
+    font-size: 18px;
+	background-color: #F0F0F0;
+	padding: 8px;
+	font-family: "Lato";
+}
+
+h2 {
+	margin-bottom: 15px;
+	font-size: 18px;
+	font-family: "Lato";
+}
+
+article {
+	margin-bottom: 4px;
+}
+
+article label {
+	width: 200px;
+	padding: 4px;
+	display: inline-block;
+	vertical-align: top;
+}
+
+article span.value {
+	display: inline-block;
+	border: 1px solid #E2E2E2;
+	width: 450px;
+	padding: 4px;
+}
+
+article span.value span {
+	display: block;
+	margin-top: 4px;
+}
+
+
+
+
+article i {
+	font-size: 14px;
+	color: #C7C7C7;
+}
+
+div.actor {
+	margin-bottom: 4px;
+}
+span.number {
+	width: 25px;
+	display: inline-block;
+	background-color: #B5B5B5;
+	text-align: center;
+	color: #FFF;
+	padding: 6px;
+}
+
+span.name {
+	width: 250px;
+	display: inline-block;
+	background-color: #D2D2D2;
+	padding: 6px;
+}
+
+span.role {
+	width: 300px;
+	display: inline-block;
+	background-color: #F3F3F3;
+	padding: 6px;
+}
