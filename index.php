@@ -4,11 +4,11 @@ require('framework/functions.php');
 require('framework/allocine.php');
 require('framework/imdb.php');
 
-// if(!isset($_GET['allocineid']) || empty($_GET['allocineid']) || !is_numeric($_GET['allocineid']))
-// 	exit();
+if(!isset($_GET['AllocineID']) || empty($_GET['AllocineID']) || !is_numeric($_GET['AllocineID']))
+	exit();
 
 $allocine = new Allocine;
-$allocine->loadPage('21189');
+$allocine->loadPage($_GET['AllocineID']);
 
 $json['allocine'] = json_decode($allocine->getJSON());
 
